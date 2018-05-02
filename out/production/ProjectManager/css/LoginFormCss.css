@@ -1,0 +1,47 @@
+#root{
+    -fx-border-width: 4px;
+    -fx-border-color: #015C79;
+    -fx-border-style: solid;
+}
+
+#btn_close{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/close.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btn_close:hover{
+    -fx-text-fill: #FF8573;
+    -fx-background-image: url("../images/close_hover.svg");
+}
+
+#btn_close:pressed{
+    -fx-text-fill: #FF6E76;
+}
+
+.text_input{
+    -fx-background-color: transparent;
+    -fx-border-style: solid;
+    -fx-border-color: #9D5686;
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 0 0 0 26;
+    -fx-text-fill: white;
+}
+
+#login_text, #pass_text{
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center;
+}
+
+#login_text{
+    -fx-background-image: url("../images/ic_account_circle_white_24dp_1x.png");
+}
+
+#pass_text{
+    -fx-background-image: url("../images/ic_lock_outline_white_24dp_1x.png");
+}
+
+#btn_login{
+    -fx-background-color: #FF6E76;
+}
