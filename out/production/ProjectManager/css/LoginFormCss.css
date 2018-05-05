@@ -13,7 +13,7 @@
 
 #btn_close:hover{
     -fx-text-fill: #FF8573;
-    -fx-background-image: url("../images/close_hover.svg");
+    -fx-background-image: url("../images/close_hover.png");
 }
 
 #btn_close:pressed{
@@ -27,21 +27,33 @@
     -fx-border-width: 0 0 2 0;
     -fx-padding: 0 0 0 26;
     -fx-text-fill: white;
-}
-
-#login_text, #pass_text{
     -fx-background-repeat: no-repeat;
     -fx-background-position: left center;
 }
 
-#login_text{
+#login_text,#reg_login{
     -fx-background-image: url("../images/ic_account_circle_white_24dp_1x.png");
 }
 
-#pass_text{
+#pass_text,#reg_pass,#reg_pass_secur{
     -fx-background-image: url("../images/ic_lock_outline_white_24dp_1x.png");
+}
+
+#reg_fio{
+    -fx-background-image: url("../images/account-card-details.png");
+}
+
+#reg_mail{
+    -fx-background-image: url("../images/email.png");
 }
 
 #btn_login{
     -fx-background-color: #FF6E76;
+}
+
+#btn_register{
+    -fx-background-color: transparent;
+    -fx-border-style: solid;
+    -fx-border-color: #FF6E76;
+    -fx-border-width: 0 0 2 0;
 }

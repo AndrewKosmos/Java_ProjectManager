@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500" prefWidth="300" style="-fx-background-color: #025A76;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Registration.RegistrationController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="300.0">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Регистрация" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <TextField id="reg_login" fx:id="txtField_login" prefHeight="51.0" prefWidth="300.0" promptText="Логин" styleClass="text_input" stylesheets="@../css/LoginFormCss.css">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </VBox.margin></TextField>
+            <PasswordField id="reg_pass" fx:id="passField_pass" prefHeight="51.0" prefWidth="300.0" promptText="Пароль" styleClass="text_input" stylesheets="@../css/LoginFormCss.css">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <PasswordField id="reg_pass_secur" fx:id="passField_passSecur" prefHeight="51.0" prefWidth="300.0" promptText="Подтверждение пароля" styleClass="text_input" stylesheets="@../css/LoginFormCss.css">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <TextField id="reg_fio" fx:id="txtField_fio" layoutX="10.0" layoutY="46.0" prefHeight="51.0" prefWidth="300.0" promptText="ФИО" styleClass="text_input" stylesheets="@../css/LoginFormCss.css">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField id="reg_mail" fx:id="txtField_mail" layoutX="10.0" layoutY="88.0" prefHeight="51.0" prefWidth="300.0" promptText="E-mail" styleClass="text_input" stylesheets="@../css/LoginFormCss.css">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="btn_register" mnemonicParsing="false" prefHeight="45.0" prefWidth="167.0" style="-fx-background-color: #F36970;" text="Зарегистрироваться" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -37,14 +37,17 @@
          </font></Button>
       <AnchorPane layoutX="417.0" layoutY="55.0" prefHeight="313.0" prefWidth="264.0" style="-fx-background-color: #025A76;">
          <children>
-            <Label layoutX="98.0" layoutY="14.0" text="Sign in" textFill="WHITE">
+            <Label layoutX="64.0" layoutY="14.0" text="Авторизация" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="23.0" />
                </font>
             </Label>
-            <TextField id="login_text" layoutX="14.0" layoutY="69.0" prefHeight="40.0" prefWidth="237.0" promptText="Login" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
-            <PasswordField id="pass_text" layoutX="14.0" layoutY="137.0" prefHeight="40.0" prefWidth="237.0" promptText="Password" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
-            <Button id="btn_login" layoutX="65.0" layoutY="203.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" stylesheets="@../css/LoginFormCss.css" text="Sign in" textFill="WHITE" />
+            <TextField id="login_text" layoutX="14.0" layoutY="69.0" prefHeight="40.0" prefWidth="237.0" promptText="Пользователь" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
+            <PasswordField id="pass_text" layoutX="14.0" layoutY="137.0" prefHeight="40.0" prefWidth="237.0" promptText="Пароль" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
+            <Button id="btn_login" fx:id="btn_login" layoutX="65.0" layoutY="203.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" stylesheets="@../css/LoginFormCss.css" text="Войти" textFill="WHITE" />
+            <Label layoutX="46.0" layoutY="42.0" text="Пожалуйста, войдите в систему" textFill="#002e39" />
+            <Label layoutX="123.0" layoutY="247.0" text="или" textFill="#002d39" />
+            <Button id="btn_register" fx:id="btn_register" layoutX="67.0" layoutY="266.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="135.0" stylesheets="@../css/LoginFormCss.css" text="Зарегистрироваться" textFill="#ff6e76" />
          </children>
       </AnchorPane>
    </children>

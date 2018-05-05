@@ -1,5 +1,6 @@
 package Main;
 
+import Network.TCPConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        TCPConnection.getInstance();
+        TCPConnection.setHost("127.0.0.1");
+        TCPConnection.setPort(44901);
+        TCPConnection.getInstance().initSocket();
+
         Parent root = FXMLLoader.load(getClass().getResource("../Auth/LoginForm.fxml"));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setScene(new Scene(root, 700, 400));
