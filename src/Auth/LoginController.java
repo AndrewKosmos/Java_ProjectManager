@@ -18,6 +18,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class LoginController implements Initializable{
     @FXML
@@ -57,8 +60,23 @@ public class LoginController implements Initializable{
                         " and pass=\"" + password_text.getText() + "\";";
         try {
             String result = TCPConnection.getInstance().sendAndRecieve(query);
-            System.out.println(result);
+            //System.out.println(result);
+            Object resultJson = new JSONParser().parse(result);
+            JSONObject resultObject = (JSONObject)resultJson;
+            JSONArray resultsArray = (JSONArray)resultObject.get("result");
+            JSONObject countObj = (JSONObject) resultsArray.get(0);
+            String countStr = (String) countObj.get("count(*)");
+            int count = (int)countStr;
+
+            if(count == 0){
+                System.out.println("NO SUCH USER");
+            }
+            if(count == 1){
+                System.out.println("SIGNED UP");
+            }
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
     }
