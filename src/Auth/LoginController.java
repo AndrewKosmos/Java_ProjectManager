@@ -1,5 +1,6 @@
 package Auth;
 
+import Network.TCPConnection;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -29,6 +32,12 @@ public class LoginController implements Initializable{
     @FXML
     private Button btn_register;
 
+    @FXML
+    private TextField login_text;
+
+    @FXML
+    private PasswordField password_text;
+
     public LoginController() {
     }
 
@@ -40,6 +49,18 @@ public class LoginController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         btn_register.setOnAction(e -> createRegistrationForm());
+        btn_login.setOnAction(e -> signUp());
+    }
+
+    private void signUp() {
+        String query = "select count(*) from mupp_user where login=\"" + login_text.getText() + "\"" +
+                        " and pass=\"" + password_text.getText() + "\";";
+        try {
+            String result = TCPConnection.getInstance().sendAndRecieve(query);
+            System.out.println(result);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void createRegistrationForm(){

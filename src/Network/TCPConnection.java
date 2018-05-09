@@ -67,7 +67,6 @@ public class TCPConnection {
         int c;
         StringBuilder resultBuilder = new StringBuilder();
         while((c = in.read()) != '\n'){
-            //System.out.println((char)c);
             resultBuilder.append((char)c);
         }
 

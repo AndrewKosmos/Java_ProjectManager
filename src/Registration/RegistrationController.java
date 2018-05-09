@@ -45,8 +45,6 @@ public class RegistrationController implements Initializable{
 
     private void registerClient(){
         try {
-            /*String res = TCPConnection.getInstance().send("select * from mupp_user;");
-            System.out.println(res);*/
             if(passField_pass.getText().equals(passField_passSecur.getText())){
                 TCPConnection.getInstance().send("insert into mupp_user(login,pass,fullname,email)" +
                         "values (\"" + txtField_login.getText() + "\"," +
