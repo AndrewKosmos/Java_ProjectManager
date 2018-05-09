@@ -41,6 +41,7 @@ public class TCPConnection {
 
     public void initSocket() throws IOException {
         socket = new Socket(host,port);
+        in = new InputStreamReader(socket.getInputStream());
     }
 
     public OutputStreamWriter getOut() {
@@ -59,14 +60,23 @@ public class TCPConnection {
         this.in = in;
     }
 
-    public String send(String query) throws IOException {
-        OutputStreamWriter outStream = new OutputStreamWriter(socket.getOutputStream());
-        InputStreamReader inStream = new InputStreamReader(socket.getInputStream());
-        PrintWriter printWriter = new PrintWriter(out,true);
-        printWriter.println(query);
+    public String sendAndRecieve(String query) throws IOException {
+        OutputStream out = socket.getOutputStream();
+        out.write(query.getBytes());
 
-        BufferedReader br = new BufferedReader(inStream);
-        return br.readLine();
+        int c;
+        StringBuilder resultBuilder = new StringBuilder();
+        while((c = in.read()) != '\n'){
+            //System.out.println((char)c);
+            resultBuilder.append((char)c);
+        }
+
+        return resultBuilder.toString();
+    }
+
+    public void send(String query) throws IOException{
+        OutputStream out = socket.getOutputStream();
+        out.write(query.getBytes());
     }
 
     @Override

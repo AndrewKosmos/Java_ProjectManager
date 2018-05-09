@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #006787;" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Auth.LoginController">
+<AnchorPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #006787;" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Auth.LoginController">
    <children>
       <ImageView fitHeight="275.0" fitWidth="432.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -45,7 +45,7 @@
             <TextField id="login_text" layoutX="14.0" layoutY="69.0" prefHeight="40.0" prefWidth="237.0" promptText="Пользователь" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
             <PasswordField id="pass_text" layoutX="14.0" layoutY="137.0" prefHeight="40.0" prefWidth="237.0" promptText="Пароль" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
             <Button id="btn_login" fx:id="btn_login" layoutX="65.0" layoutY="203.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" stylesheets="@../css/LoginFormCss.css" text="Войти" textFill="WHITE" />
-            <Label layoutX="46.0" layoutY="42.0" text="Пожалуйста, войдите в систему" textFill="#002e39" />
+            <Label layoutX="24.0" layoutY="43.0" text="Пожалуйста, войдите в систему" textFill="#002e39" />
             <Label layoutX="123.0" layoutY="247.0" text="или" textFill="#002d39" />
             <Button id="btn_register" fx:id="btn_register" layoutX="67.0" layoutY="266.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="135.0" stylesheets="@../css/LoginFormCss.css" text="Зарегистрироваться" textFill="#ff6e76" />
          </children>

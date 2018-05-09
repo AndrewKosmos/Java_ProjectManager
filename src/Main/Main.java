@@ -10,9 +10,11 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
+    TCPConnection conn;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        TCPConnection.getInstance();
+        conn = TCPConnection.getInstance();
         TCPConnection.setHost("127.0.0.1");
         TCPConnection.setPort(44901);
         TCPConnection.getInstance().initSocket();
