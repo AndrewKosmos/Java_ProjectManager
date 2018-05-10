@@ -66,7 +66,27 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #dbdbdb;" BorderPane.alignment="CENTER">
          <children>
-            <StackPane id="hello_pane" fx:id="hello_pane" layoutX="104.0" layoutY="58.0" prefHeight="350" prefWidth="350" stylesheets="@../css/MainCss.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0" />
+            <StackPane id="hello_pane" fx:id="hello_pane" layoutX="104.0" layoutY="58.0" prefHeight="350" prefWidth="350" stylesheets="@../css/MainCss.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/circle_logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Добро пожаловать в Project Manager!" textFill="#979797">
+                     <StackPane.margin>
+                        <Insets top="200.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Для начала работы выберите один из пунктов меню:&#10;- Мои задачи: отображение всех задач&#10;- Проекты: отображение проектов и создание новых" textFill="#979797">
+                     <StackPane.margin>
+                        <Insets top="280.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children></StackPane>
          </children>
       </AnchorPane>
    </center>
