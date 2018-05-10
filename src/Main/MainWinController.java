@@ -3,6 +3,7 @@ package Main;
 import Network.TCPConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import org.json.simple.JSONArray;
@@ -23,6 +24,9 @@ public class MainWinController implements Initializable {
     private Label label_fio;
 
     @FXML
+    private Button btn_showTasks;
+
+    @FXML
     private ImageView imgView_avatar;
 
     private final String user_login;
@@ -34,6 +38,11 @@ public class MainWinController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         label_fio.setText(getFIO());
+        btn_showTasks.setOnAction(e -> showTasksScene());
+    }
+
+    private void showTasksScene() {
+        
     }
 
     private String getFIO(){
@@ -52,5 +61,9 @@ public class MainWinController implements Initializable {
             e.printStackTrace();
         }
         return loginStr;
+    }
+
+    public String getUser_login() {
+        return user_login;
     }
 }
