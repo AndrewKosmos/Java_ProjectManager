@@ -42,7 +42,6 @@ public class MainWinController implements Initializable {
     }
 
     private void showTasksScene() {
-        
     }
 
     private String getFIO(){
