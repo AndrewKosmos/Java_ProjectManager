@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="569.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.MainWinController">
+   <top>
+      <HBox id="header" prefHeight="40.0" prefWidth="863.0" style="-fx-background-color: #015C79;" stylesheets="@../css/MainCss.css" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane id="imgView_avatar_stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="32.0" stylesheets="@../css/MainCss.css">
+               <children>
+                  <ImageView fx:id="imgView_avatar" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/avatar.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </StackPane>
+            <Label fx:id="label_fio" prefHeight="20.0" prefWidth="394.0" text="FIO" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="2.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox id="menu" maxWidth="1.7976931348623157E308" prefHeight="529.0" prefWidth="156.0" stylesheets="@../css/MainCss.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="btn_tasks" fx:id="btn_showTasks" mnemonicParsing="false" prefHeight="40.0" prefWidth="156.0" styleClass="menu_btn" stylesheets="@../css/MainCss.css" text="Мои задачи" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button id="btn_projects" fx:id="btn_showProjects" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="156.0" styleClass="menu_btn" stylesheets="@../css/MainCss.css" text="Проекты" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button id="btn_settings" fx:id="btn_setSettings" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="156.0" styleClass="menu_btn" stylesheets="@../css/MainCss.css" text="Настройки" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children></VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #dbdbdb;" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane id="hello_pane" fx:id="hello_pane" layoutX="104.0" layoutY="58.0" prefHeight="350" prefWidth="350" stylesheets="@../css/MainCss.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,54 @@
+#imgView_avatar_stackPane{
+    -fx-border-radius: 200px;
+    -fx-border-width: 1px;
+    -fx-border-color: #FF8573;
+    -fx-border-color: #015C79;
+    -fx-border-style: solid;
+}
+
+#header{
+    -fx-border-style: solid;
+    -fx-border-color: #013140;
+    -fx-border-width: 0 0 2 0;
+}
+
+#menu{
+    -fx-background-color: #013140;
+}
+
+.menu_btn{
+    -fx-background-color: #013140;
+    -fx-border-style: solid;
+    -fx-border-color: #011b23;
+    -fx-border-width: 0 0 2 0;
+}
+
+.menu_btn:hover{
+    -fx-background-color: #015C79;
+    -fx-border-color: white;
+}
+
+#btn_tasks{
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
+    -fx-background-image: url("../images/menu_task.png");
+}
+
+#btn_projects{
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
+    -fx-background-image: url("../images/menu_project.png");
+}
+
+#btn_settings{
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
+    -fx-background-image: url("../images/menu_settings.png");
+}
+
+#hello_pane{
+    -fx-border-style: dashed;
+    -fx-border-color: #c6c6c6;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50px;
+}

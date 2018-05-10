@@ -1,5 +1,7 @@
 package Auth;
 
+import Main.Main;
+import Main.MainWinController;
 import Network.TCPConnection;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -17,7 +19,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.concurrent.Callable;
+
+import javafx.util.Callback;
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -66,13 +73,55 @@ public class LoginController implements Initializable{
             JSONArray resultsArray = (JSONArray)resultObject.get("result");
             JSONObject countObj = (JSONObject) resultsArray.get(0);
             String countStr = (String) countObj.get("count(*)");
-            int count = (int)countStr;
+            int count = Integer.parseInt(countStr);
 
             if(count == 0){
                 System.out.println("NO SUCH USER");
             }
             if(count == 1){
                 System.out.println("SIGNED UP");
+                Stage mainWindow = new Stage();
+                mainWindow.setTitle("Project Manager");
+
+                Map<Class, Callable<?>> creators = new HashMap<>();
+                creators.put(MainWinController.class, new Callable<MainWinController>() {
+
+                    @Override
+                    public MainWinController call() throws Exception {
+                        return new MainWinController(login_text.getText());
+                    }
+
+                });
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Main/MainWinForm.fxml"));
+                loader.setControllerFactory(new Callback<Class<?>, Object>() {
+
+                    @Override
+                    public Object call(Class<?> param) {
+                        Callable<?> callable = creators.get(param);
+                        if (callable == null) {
+                            try {
+                                // default handling: use no-arg constructor
+                                return param.newInstance();
+                            } catch (InstantiationException | IllegalAccessException ex) {
+                                throw new IllegalStateException(ex);
+                            }
+                        } else {
+                            try {
+                                return callable.call();
+                            } catch (Exception ex) {
+                                throw new IllegalStateException(ex);
+                            }
+                        }
+                    }
+                });
+
+                Parent root = loader.load();
+                mainWindow.setScene(new Scene(root,864,566));
+                mainWindow.show();
+
+                Stage primary = (Stage) btn_login.getScene().getWindow();
+                primary.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
