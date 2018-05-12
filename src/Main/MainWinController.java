@@ -2,10 +2,13 @@ package Main;
 
 import Network.TCPConnection;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -19,6 +22,9 @@ import java.util.ResourceBundle;
  * Created by Andrew on 10.05.2018.
  */
 public class MainWinController implements Initializable {
+
+    @FXML
+    private BorderPane borderPane_root;
 
     @FXML
     private Label label_fio;
@@ -42,6 +48,13 @@ public class MainWinController implements Initializable {
     }
 
     private void showTasksScene() {
+        System.out.println("Show tasks!");
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("TaskScreen/TaskScreen.fxml"));
+            borderPane_root.setCenter(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private String getFIO(){

@@ -42,7 +42,7 @@
                   <Font name="Segoe UI" size="23.0" />
                </font>
             </Label>
-            <TextField id="login_text" fx:id="login_text" layoutX="14.0" layoutY="69.0" prefHeight="40.0" prefWidth="237.0" promptText="Пользователь" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
+            <TextField id="login_text_css" fx:id="login_text" layoutX="14.0" layoutY="69.0" prefHeight="40.0" prefWidth="237.0" promptText="Пользователь" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
             <PasswordField id="pass_text" fx:id="password_text" layoutX="14.0" layoutY="137.0" prefHeight="40.0" prefWidth="237.0" promptText="Пароль" styleClass="text_input" stylesheets="@../css/LoginFormCss.css" />
             <Button id="btn_login" fx:id="btn_login" layoutX="65.0" layoutY="203.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" stylesheets="@../css/LoginFormCss.css" text="Войти" textFill="WHITE" />
             <Label layoutX="24.0" layoutY="43.0" text="Пожалуйста, войдите в систему" textFill="#002e39" />

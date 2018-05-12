@@ -1,6 +1,5 @@
 package Auth;
 
-import Main.Main;
 import Main.MainWinController;
 import Network.TCPConnection;
 import javafx.application.Platform;
@@ -65,9 +64,10 @@ public class LoginController implements Initializable{
     private void signUp() {
         String query = "select count(*) from mupp_user where login=\"" + login_text.getText() + "\"" +
                         " and pass=\"" + password_text.getText() + "\";";
+        System.out.println(query);
         try {
             String result = TCPConnection.getInstance().sendAndRecieve(query);
-            //System.out.println(result);
+            System.out.println(result);
             Object resultJson = new JSONParser().parse(result);
             JSONObject resultObject = (JSONObject)resultJson;
             JSONArray resultsArray = (JSONArray)resultObject.get("result");
