@@ -1,5 +1,7 @@
 package Models;
 
+import org.json.simple.JSONObject;
+
 /**
  * Created by Andrew on 11.05.2018.
  */
@@ -30,6 +32,19 @@ public class ProjectModel {
         this.projectPercent = projectPercent;
         this.projectManager = projectManager;
         this.projectGitUrl = projectGitUrl;
+    }
+
+    public static ProjectModel fromJson(JSONObject obj){
+        ProjectModel model = new ProjectModel();
+
+        model.projectId = Integer.parseInt((String) obj.get("project_id"));
+        model.projectName = (String) obj.get("project_name");
+        model.projectDescription = (String) obj.get("project_description");
+        model.projectPercent = Integer.parseInt((String)obj.get("project_percent"));
+        model.projectManager = Integer.parseInt((String) obj.get("manager"));
+        model.projectGitUrl = (String) obj.get("git_url");
+
+        return model;
     }
 
     public int getProjectId() {

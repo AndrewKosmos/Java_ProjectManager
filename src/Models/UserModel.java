@@ -1,5 +1,10 @@
 package Models;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 /**
  * Created by Andrew on 11.05.2018.
  */
@@ -26,6 +31,31 @@ public class UserModel {
         this.userPass = userPass;
         this.userFullname = userFullname;
         this.userEmail = userEmail;
+    }
+
+    public static UserModel fromJson(JSONObject loginObj){
+        UserModel model = new UserModel();
+        model.userId = Integer.parseInt((String)loginObj.get("user_id"));
+        model.userLogin = (String) loginObj.get("login");
+        model.userPass = (String) loginObj.get("pass");
+        model.userFullname = (String) loginObj.get("fullname");
+        model.userEmail = (String) loginObj.get("email");
+//        Object resultJson = null;
+//        try {
+//            resultJson = new JSONParser().parse(message);
+//            JSONObject resultObject = (JSONObject)resultJson;
+//            JSONArray resultsArray = (JSONArray)resultObject.get("result");
+//            JSONObject loginObj = (JSONObject) resultsArray.get(0);
+//            model.userId = Integer.parseInt((String)loginObj.get("user_id"));
+//            model.userLogin = (String) loginObj.get("login");
+//            model.userPass = (String) loginObj.get("pass");
+//            model.userFullname = (String) loginObj.get("fullname");
+//            model.userEmail = (String) loginObj.get("email");
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+
+        return model;
     }
 
     public int getUserId() {
@@ -66,5 +96,10 @@ public class UserModel {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    @Override
+    public String toString() {
+        return "login" + userLogin + "fullname" + userFullname;
     }
 }

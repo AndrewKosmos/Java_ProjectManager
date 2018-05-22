@@ -1,5 +1,10 @@
 package Models;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 /**
  * Created by Andrew on 11.05.2018.
  */
@@ -7,6 +12,9 @@ public class TaskModel {
     public static final int TASK_STATUS_WIP = 0;
     public static final int TASK_STATUS_PAUSED = 1;
     public static final int TASK_STATUS_CLOSED = 2;
+
+    public static final int TASK_PRIORITY_NORMAL = 0;
+    public static final int TASK_PRIORITY_MAJOR = 1;
 
     private int taskId;
     private int taskPercent;
@@ -54,6 +62,47 @@ public class TaskModel {
         this.taskLastUpdateDate = taskLastUpdateDate;
         this.taskStatus = taskStatus;
         this.taskPriority = taskPriority;
+    }
+
+    public static TaskModel fromJson(JSONObject taskObj){
+        TaskModel model = new TaskModel();
+        model.taskId = Integer.parseInt((String) taskObj.get("task_id"));
+        model.taskName = (String) taskObj.get("name");
+        model.taskDescription = (String) taskObj.get("description");
+        model.taskUpdateText = (String) taskObj.get("update_text");
+        model.taskPercent = Integer.parseInt((String) taskObj.get("percent"));
+        model.taskProjectId = Integer.parseInt((String) taskObj.get("project_id"));
+        model.taskAssignee = Integer.parseInt((String)taskObj.get("assignee"));
+        model.taskStartDate = Integer.parseInt((String) taskObj.get("start_date"));
+        model.taskFinishDate = Integer.parseInt((String) taskObj.get("finish_date"));
+        model.taskLastUpdateDate = Integer.parseInt((String) taskObj.get("last_update_date"));
+        model.taskStatus = Integer.parseInt((String) taskObj.get("status"));
+        model.taskPriority = Integer.parseInt((String) taskObj.get("priority"));
+
+
+//        Object resultJson = null;
+//        try {
+//            resultJson = new JSONParser().parse(message);
+//            JSONObject resultObject = (JSONObject)resultJson;
+//            JSONArray resultsArray = (JSONArray)resultObject.get("result");
+//            JSONObject taskObj = (JSONObject) resultsArray.get(0);
+//            model.taskId = Integer.parseInt((String) taskObj.get("task_id"));
+//            model.taskName = (String) taskObj.get("name");
+//            model.taskDescription = (String) taskObj.get("description");
+//            model.taskUpdateText = (String) taskObj.get("update_text");
+//            model.taskPercent = Integer.parseInt((String) taskObj.get("percent"));
+//            model.taskProjectId = Integer.parseInt((String) taskObj.get("project_id"));
+//            model.taskAssignee = Integer.parseInt((String)taskObj.get("assignee"));
+//            model.taskStartDate = Integer.parseInt((String) taskObj.get("start_date"));
+//            model.taskFinishDate = Integer.parseInt((String) taskObj.get("finish_date"));
+//            model.taskLastUpdateDate = Integer.parseInt((String) taskObj.get("last_update_date"));
+//            model.taskStatus = Integer.parseInt((String) taskObj.get("status"));
+//            model.taskPriority = Integer.parseInt((String) taskObj.get("priority"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+
+        return model;
     }
 
     public int getTaskId() {
@@ -150,5 +199,10 @@ public class TaskModel {
 
     public void setTaskUpdateText(String taskUpdateText) {
         this.taskUpdateText = taskUpdateText;
+    }
+
+    @Override
+    public String toString() {
+        return taskName;
     }
 }

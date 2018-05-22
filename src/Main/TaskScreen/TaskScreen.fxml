@@ -1,16 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="530.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.TaskScreen.TaskScreenController">
+<AnchorPane prefHeight="530.0" prefWidth="710.0" style="-fx-background-color: #dbdbdb;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.TaskScreen.TaskScreenController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" layoutX="243.0" layoutY="179.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-        </items>
-      </SplitPane>
+      <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+         <children>
+            <ListView fx:id="listView_tasks" maxWidth="1.7976931348623157E308" prefHeight="530.0" prefWidth="316.0" />
+            <AnchorPane fx:id="taskFieldsWin" minHeight="300.0" minWidth="300.0" prefHeight="530.0" prefWidth="378.0">
+               <children>
+                  <VBox layoutX="20.0" layoutY="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <HBox id="taskName" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="339.0" stylesheets="@../../css/MainCss.css">
+                           <children>
+                              <Label fx:id="taskNameLabel" text="Task">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label fx:id="projNameLabel" prefHeight="17.0" prefWidth="337.0" text="Label" textFill="#979797" />
+                        <Label fx:id="projManagerLabel" prefHeight="17.0" prefWidth="338.0" text="Label" textFill="#979797" />
+                        <Label text="Введите сообщение">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextArea fx:id="taskUpdTextArea" prefHeight="114.0" prefWidth="336.0" />
+                        <Label text="Прогресс">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Slider fx:id="taskPercentProgressbar" majorTickUnit="10.0" showTickLabels="true" snapToTicks="true" />
+                        <Label text="Приоритет" />
+                        <ComboBox fx:id="taskPriorityCBX" prefHeight="25.0" prefWidth="337.0" promptText="Установите приоритет" />
+                        <ComboBox fx:id="taskStatusCBX" prefHeight="25.0" prefWidth="340.0" promptText="Статус">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></ComboBox>
+                        <Button fx:id="taskUpdateBtn" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="229.0" text="Обновить">
+                           <VBox.margin>
+                              <Insets left="60.0" top="100.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <StackPane fx:id="tasksScreenFiller" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #dbdbdb;" visible="false" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+                     <children>
+                        <StackPane id="selectCardPane" prefHeight="356.0" prefWidth="217.0" stylesheets="@../../css/MainCss.css" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <StackPane.margin>
+                              <Insets bottom="150.0" left="50.0" right="60.0" top="150.0" />
+                           </StackPane.margin>
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/selectCard.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Выберите задачу для ее просмотра&#10;и обновления" textAlignment="CENTER" textFill="#979797">
+                                 <StackPane.margin>
+                                    <Insets top="150.0" />
+                                 </StackPane.margin>
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children></StackPane>
+                     </children></StackPane>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></AnchorPane>
+         </children></HBox>
    </children>
 </AnchorPane>

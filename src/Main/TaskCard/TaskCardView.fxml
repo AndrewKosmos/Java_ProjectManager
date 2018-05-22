@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="taskCard" fx:id="taskRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" stylesheets="@../../css/MainCss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="100.0" layoutY="1.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+         <children>
+            <HBox id="taskHeader" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../css/MainCss.css">
+               <children>
+                  <Label fx:id="label_taskName" prefHeight="30.0" prefWidth="313.0" text="Label" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></Label>
+               </children></HBox>
+            <StackPane prefHeight="176.0" prefWidth="300.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label id="taskDesc" fx:id="taskCardDesc" layoutX="15.0" layoutY="14.0" stylesheets="@../../css/MainCss.css" text="Label" textFill="#5e5e5e">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="taskCardStatus" layoutX="15.0" layoutY="34.0" text="Label" textFill="#6b6969" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="34.0">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font></Label>
+                        <ProgressBar fx:id="taskCardProgress" layoutX="82.0" layoutY="51.0" prefWidth="200.0" progress="0.0" />
+                        <Label layoutX="15.0" layoutY="51.0" text="Прогресс" textFill="#686666" />
+                        <Label layoutX="15.0" layoutY="77.0" text="Последнее обновление:" textFill="#6f6f6f" />
+                        <VBox layoutX="14.0" layoutY="94.0" prefHeight="72.0" prefWidth="269.0" style="-fx-background-color: #dbdbdb;">
+                           <children>
+                              <Label fx:id="taskCardUpdText" text="Label" textFill="#282828" />
+                              <DatePicker fx:id="taskCardUpdateDate" disable="true" editable="false">
+                                 <VBox.margin>
+                                    <Insets left="90.0" top="25.0" />
+                                 </VBox.margin></DatePicker>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </children></VBox>
+   </children>
+</AnchorPane>

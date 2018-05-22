@@ -52,3 +52,32 @@
     -fx-border-width: 5px;
     -fx-border-radius: 50px;
 }
+
+#taskHeader{
+    -fx-background-color: #015C79;
+}
+
+#taskCard{
+    -fx-background-color: white;
+    -fx-border-style: solid;
+    -fx-border-color: #011b23;
+    -fx-border-width: 2 2 2 2;
+    -fx-border-radius: 5px;
+}
+
+#taskDesc{
+    -fx-background-color: #c6c6c6;
+}
+
+#taskName{
+    -fx-border-style: solid;
+    -fx-border-color: #FF8573;
+    -fx-border-width: 0 0 2 0;
+}
+
+#selectCardPane{
+    -fx-border-style: dashed;
+    -fx-border-color: #c6c6c6;
+    -fx-border-width: 5px;
+    -fx-border-radius: 50px;
+}

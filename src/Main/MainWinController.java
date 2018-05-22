@@ -1,5 +1,6 @@
 package Main;
 
+import Models.UserModel;
 import Network.TCPConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +37,7 @@ public class MainWinController implements Initializable {
     private ImageView imgView_avatar;
 
     private final String user_login;
+    public UserModel currentUser;
 
     public MainWinController(String login){
         this.user_login = login;
@@ -59,17 +61,21 @@ public class MainWinController implements Initializable {
 
     private String getFIO(){
         String loginStr = "User";
-        String query = "select fullname from mupp_user where login=\"" + user_login + "\";";
+        String query = "select * from mupp_user where login=\"" + user_login + "\";";
         try {
             String result = TCPConnection.getInstance().sendAndRecieve(query);
-            Object resultJson = new JSONParser().parse(result);
-            JSONObject resultObject = (JSONObject)resultJson;
-            JSONArray resultsArray = (JSONArray)resultObject.get("result");
-            JSONObject loginObj = (JSONObject) resultsArray.get(0);
-            loginStr = (String) loginObj.get("fullname");
+            Object resultJson = null;
+            try {
+                resultJson = new JSONParser().parse(result);
+                JSONObject resultObject = (JSONObject)resultJson;
+                JSONArray resultsArray = (JSONArray)resultObject.get("result");
+                JSONObject loginObj = (JSONObject) resultsArray.get(0);
+                currentUser = UserModel.fromJson(loginObj);
+                loginStr = currentUser.getUserFullname();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
         return loginStr;
