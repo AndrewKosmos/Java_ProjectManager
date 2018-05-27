@@ -94,4 +94,9 @@ public class ProjectModel {
     public void setProjectGitUrl(String projectGitUrl) {
         this.projectGitUrl = projectGitUrl;
     }
+
+    @Override
+    public String toString() {
+        return "Project #" + projectId + ": " + projectName;
+    }
 }

@@ -34,10 +34,13 @@ public class MainWinController implements Initializable {
     private Button btn_showTasks;
 
     @FXML
+    private Button btn_showProjects;
+
+    @FXML
     private ImageView imgView_avatar;
 
     private final String user_login;
-    public UserModel currentUser;
+    public static UserModel currentUser;
 
     public MainWinController(String login){
         this.user_login = login;
@@ -47,6 +50,16 @@ public class MainWinController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         label_fio.setText(getFIO());
         btn_showTasks.setOnAction(e -> showTasksScene());
+        btn_showProjects.setOnAction(e -> showProjectsScene());
+    }
+
+    private void showProjectsScene() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ProjectScreen/ProjectScreen.fxml"));
+            borderPane_root.setCenter(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showTasksScene() {

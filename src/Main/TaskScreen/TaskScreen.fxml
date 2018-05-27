@@ -63,7 +63,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <StackPane fx:id="tasksScreenFiller" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #dbdbdb;" visible="false" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+                  <StackPane fx:id="tasksScreenFiller" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #dbdbdb;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
                      <children>
                         <StackPane id="selectCardPane" prefHeight="356.0" prefWidth="217.0" stylesheets="@../../css/MainCss.css" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
                            <opaqueInsets>

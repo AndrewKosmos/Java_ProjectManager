@@ -23,6 +23,26 @@
     -fx-border-width: 0 0 2 0;
 }
 
+.add_btn{
+    -fx-border-color: #013140;
+    -fx-border-width: 2px;
+    -fx-border-radius: 30px;
+}
+
+.remove_btn{
+    -fx-border-color: #013140;
+    -fx-border-width: 2px;
+    -fx-border-radius: 30px;
+}
+
+#add_btn_proj{
+    -fx-background-color: transparent;
+}
+
+#remove_btn_proj{
+    -fx-background-color: transparent;
+}
+
 .menu_btn:hover{
     -fx-background-color: #015C79;
     -fx-border-color: white;
