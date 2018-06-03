@@ -66,18 +66,23 @@ public class TaskModel {
 
     public static TaskModel fromJson(JSONObject taskObj){
         TaskModel model = new TaskModel();
-        model.taskId = Integer.parseInt((String) taskObj.get("task_id"));
+        try{
+            model.taskId = Integer.parseInt((String) taskObj.get("task_id"));
+            model.taskPercent = Integer.parseInt((String) taskObj.get("percent"));
+            model.taskProjectId = Integer.parseInt((String) taskObj.get("project_id"));
+            model.taskAssignee = Integer.parseInt((String)taskObj.get("assignee"));
+            model.taskStartDate = Integer.parseInt((String) taskObj.get("start_date"));
+            model.taskFinishDate = Integer.parseInt((String) taskObj.get("finish_date"));
+            model.taskLastUpdateDate = Integer.parseInt((String) taskObj.get("last_update_date"));
+            model.taskStatus = Integer.parseInt((String) taskObj.get("status"));
+            model.taskPriority = Integer.parseInt((String) taskObj.get("priority"));
+        }
+        catch (NumberFormatException e){
+
+        }
         model.taskName = (String) taskObj.get("name");
         model.taskDescription = (String) taskObj.get("description");
         model.taskUpdateText = (String) taskObj.get("update_text");
-        model.taskPercent = Integer.parseInt((String) taskObj.get("percent"));
-        model.taskProjectId = Integer.parseInt((String) taskObj.get("project_id"));
-        model.taskAssignee = Integer.parseInt((String)taskObj.get("assignee"));
-        model.taskStartDate = Integer.parseInt((String) taskObj.get("start_date"));
-        model.taskFinishDate = Integer.parseInt((String) taskObj.get("finish_date"));
-        model.taskLastUpdateDate = Integer.parseInt((String) taskObj.get("last_update_date"));
-        model.taskStatus = Integer.parseInt((String) taskObj.get("status"));
-        model.taskPriority = Integer.parseInt((String) taskObj.get("priority"));
 
 
 //        Object resultJson = null;

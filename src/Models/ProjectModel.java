@@ -1,6 +1,9 @@
 package Models;
 
+import javafx.util.Callback;
 import org.json.simple.JSONObject;
+
+import java.util.Observable;
 
 /**
  * Created by Andrew on 11.05.2018.
@@ -37,11 +40,16 @@ public class ProjectModel {
     public static ProjectModel fromJson(JSONObject obj){
         ProjectModel model = new ProjectModel();
 
-        model.projectId = Integer.parseInt((String) obj.get("project_id"));
+        try{
+            model.projectId = Integer.parseInt((String) obj.get("project_id"));
+            model.projectPercent = Integer.parseInt((String)obj.get("project_percent"));
+            model.projectManager = Integer.parseInt((String) obj.get("manager"));
+        }
+        catch (NumberFormatException e){
+
+        }
         model.projectName = (String) obj.get("project_name");
         model.projectDescription = (String) obj.get("project_description");
-        model.projectPercent = Integer.parseInt((String)obj.get("project_percent"));
-        model.projectManager = Integer.parseInt((String) obj.get("manager"));
         model.projectGitUrl = (String) obj.get("git_url");
 
         return model;

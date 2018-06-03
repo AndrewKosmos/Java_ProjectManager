@@ -12,8 +12,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -52,6 +56,10 @@ public class TaskScreenController implements Initializable {
     private ComboBox<String> taskStatusCBX;
     @FXML
     private Button taskUpdateBtn;
+    @FXML
+    private Button btn_rmTask;
+    @FXML
+    private Button btn_addTask;
 
     private TaskCardModel currentModel;
 
@@ -63,6 +71,7 @@ public class TaskScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        btn_addTask.setOnAction(e -> newTaskWin());
         String query = "select * from mupp_task t left join mupp_project u on t.project_id=u.project_id where t.assignee=" + MainWinController.currentUser.getUserId() + ";";
 
         try {
@@ -100,6 +109,22 @@ public class TaskScreenController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void newTaskWin() {
+        try {
+            Stage newTaskWin = new Stage();
+            newTaskWin.initModality(Modality.APPLICATION_MODAL);
+            newTaskWin.setTitle("Создание новой задачи");
+            newTaskWin.setWidth(300);
+            newTaskWin.setHeight(400);
+
+            Parent root = FXMLLoader.load(getClass().getResource("newTaskWin.fxml"));
+            newTaskWin.setScene(new Scene(root,300,400));
+            newTaskWin.show();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

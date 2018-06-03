@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="530.0" prefWidth="710.0" style="-fx-background-color: #dbdbdb;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.ProjectScreen.ProjectScreenController">
+<AnchorPane prefHeight="530.0" prefWidth="710.0" style="-fx-background-color: #dbdbdb;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.ProjectScreen.ProjectScreenController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
          <children>
@@ -44,7 +44,7 @@
                                  <children>
                                     <Circle fill="#d6261e" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
                                     <SVGPath content="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z" fill="#8d0404" />
-                                    <Button id="remove_btn_proj" fx:id="addProjBtn1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" stylesheets="@../../css/MainCss.css" />
+                                    <Button id="remove_btn_proj" fx:id="delProjBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" stylesheets="@../../css/MainCss.css" />
                                  </children>
                                  <HBox.margin>
                                     <Insets left="5.0" />
@@ -85,7 +85,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <StackPane fx:id="tasksScreenFiller" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #dbdbdb;" visible="false" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+                  <StackPane fx:id="tasksScreenFiller" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #dbdbdb;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
                      <children>
                         <StackPane id="selectCardPane" prefHeight="356.0" prefWidth="217.0" stylesheets="@../../css/MainCss.css" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
                            <opaqueInsets>

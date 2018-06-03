@@ -31,7 +31,7 @@
     -fx-background-position: left center;
 }
 
-#login_text,#reg_login{
+#login_text_css,#reg_login{
     -fx-background-image: url("../images/ic_account_circle_white_24dp_1x.png");
 }
 

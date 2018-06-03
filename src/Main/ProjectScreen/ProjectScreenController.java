@@ -11,9 +11,15 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -45,6 +51,8 @@ public class ProjectScreenController implements Initializable {
     private Button taskUpdateBtn;
     @FXML
     private Button addProjBtn;
+    @FXML
+    private Button delProjBtn;
 
     private ProjectModel currentModel;
 
@@ -57,9 +65,62 @@ public class ProjectScreenController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addProjBtn.setOnAction(e -> getNewProjectScreen());
+        delProjBtn.setOnAction(e -> removeProject());
+        initProjects();
+        //listView_projects.setItems(projectsList);
+        listView_projects.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ProjectModel>() {
+            @Override
+            public void changed(ObservableValue<? extends ProjectModel> observable, ProjectModel oldValue, ProjectModel newValue) {
+                if(oldValue == null){
+                    tasksScreenFiller.setVisible(false);
+                }
+                if(newValue == null){
+                    tasksScreenFiller.setVisible(true);
+                }
+                currentModel = newValue;
+                setProjectFields(currentModel);
+            }
+        });
+    }
+
+    private void removeProject() {
+        String t = "delete from mupp_task where project_id=" + currentModel.getProjectId() + ";";
+        String q = "delete from mupp_project where project_id=" + currentModel.getProjectId() + ";";
+        try {
+            TCPConnection.getInstance().send(t);
+            TCPConnection.getInstance().send(q);
+            listView_projects.getSelectionModel().selectFirst();
+            currentModel = projectsList.get(0);
+            initProjects();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getNewProjectScreen() {
+        try {
+            Stage newProjWin = new Stage();
+            newProjWin.initModality(Modality.APPLICATION_MODAL);
+            newProjWin.setTitle("Создание нового проекта");
+            newProjWin.setWidth(300);
+            newProjWin.setHeight(300);
+
+            Parent root = FXMLLoader.load(getClass().getResource("NewProjectSreen.fxml"));
+            newProjWin.setScene(new Scene(root,300,300));
+            //newProjWin.setOnCloseRequest(e -> initProjects());
+            newProjWin.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initProjects(){
+        projectsList.clear();
+        projectsNamesList.clear();
         String query = "select * from mupp_project;";
         try {
             String result = TCPConnection.getInstance().sendAndRecieve(query);
+            System.out.println(result);
             Object resultJson = new JSONParser().parse(result);
             JSONObject resultObject = (JSONObject)resultJson;
             JSONArray resultsArray = (JSONArray)resultObject.get("result");
@@ -70,29 +131,13 @@ public class ProjectScreenController implements Initializable {
                 projectsNamesList.add(model.toString());
             }
 
+            listView_projects.setItems(null);
             listView_projects.setItems(projectsList);
-            listView_projects.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ProjectModel>() {
-                @Override
-                public void changed(ObservableValue<? extends ProjectModel> observable, ProjectModel oldValue, ProjectModel newValue) {
-                    if(oldValue == null){
-                        tasksScreenFiller.setVisible(false);
-                    }
-                    if(newValue == null){
-                        tasksScreenFiller.setVisible(true);
-                    }
-                    currentModel = newValue;
-                    setProjectFields(currentModel);
-                }
-            });
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
         }
-    }
-
-    private void getNewProjectScreen() {
-        System.out.println("NEW PROJECT SCREEN");
     }
 
     private void setProjectFields(ProjectModel value){
@@ -119,6 +164,7 @@ public class ProjectScreenController implements Initializable {
             e.printStackTrace();
         }
 
+        projectTasksLV.setItems(null);
         projectTasksLV.setItems(tasksList);
 
     }
